@@ -1,0 +1,191 @@
+Aquí tienes el cuestionario resuelto en formato formal, sin emojis, con títulos, subtítulos y texto justificado:
+
+---
+
+# Módulo 4 – Semana 8 Día 3
+
+## Cuestionario Teórico – Programación Orientada a Objetos
+
+**Proyecto: Sabores del Mundo**
+
+---
+
+### 1. ¿Qué es la Orientación a Objetos y por qué es importante en la programación?
+
+La Programación Orientada a Objetos (POO) es un paradigma de programación que organiza el código en torno a entidades llamadas "objetos", los cuales representan elementos del mundo real o conceptos abstractos. Estos objetos son instancias de clases, y contienen tanto atributos (datos) como métodos (funciones).
+
+Este paradigma es importante porque permite estructurar el código de manera modular, reutilizable y mantenible. A diferencia de la programación estructurada, donde se trabaja con funciones y estructuras de datos por separado, la POO encapsula todo lo necesario en cada objeto, lo que facilita la comprensión y la escalabilidad del software.
+
+En el caso de un restaurante como “Sabores del Mundo”, la POO permite modelar componentes como clientes, mesas, pedidos y reservas, lo que ayuda a manejar la complejidad del sistema de forma clara y ordenada.
+
+---
+
+### 2. ¿Cómo puedes aplicar los conceptos de la Orientación a Objetos al sistema de un restaurante?
+
+Se pueden aplicar los conceptos de la POO modelando cada entidad del restaurante como una clase. Cada clase define los atributos y métodos relevantes para esa entidad.
+
+Por ejemplo:
+
+* La clase `Cliente` puede tener atributos como nombre y correo, y métodos como `saludar()`.
+* La clase `Mesa` puede tener un número de mesa y un estado (libre/ocupada), y métodos como `ocupar()` o `liberar()`.
+* La clase `Pedido` puede contener los platos solicitados, el total a pagar y el estado del pedido.
+* La clase `Reserva` puede vincular a un cliente con una mesa, y tener métodos para realizar o cancelar la reserva.
+
+Así se construye un sistema coherente, donde cada objeto cumple un rol definido.
+
+---
+
+### 3. ¿Qué es una clase? Ejemplo de clase Cliente
+
+Una clase es una plantilla o modelo que define las características y comportamientos de los objetos que se crean a partir de ella. Es un concepto clave en la programación orientada a objetos.
+
+Ejemplo de clase `Cliente`:
+
+```python
+class Cliente:
+    def __init__(self, nombre, correo):
+        self.nombre = nombre
+        self.correo = correo
+```
+
+Esta clase define que todo cliente tendrá un nombre y un correo electrónico.
+
+---
+
+### 4. Diferencia entre Clase, Instancia y Objeto
+
+* **Clase**: Es el molde o plantilla que define atributos y métodos.
+* **Instancia**: Es un objeto específico creado a partir de una clase.
+* **Objeto**: Es sinónimo de instancia; es la entidad concreta que existe en memoria.
+
+Ejemplo:
+
+```python
+cliente1 = Cliente("Ana", "ana@mail.com")
+```
+
+Aquí, `Cliente` es la clase, y `cliente1` es una instancia u objeto creado a partir de esa clase.
+
+---
+
+### 5. ¿Qué son los Atributos de una Clase? Ejemplo en clase Pedido
+
+Los atributos son variables que almacenan la información de cada objeto. Se definen dentro de la clase, usualmente en el método `__init__`.
+
+Ejemplo de atributos en la clase `Pedido`:
+
+```python
+class Pedido:
+    def __init__(self, cliente, platos):
+        self.cliente = cliente
+        self.platos = platos
+        self.total = 20000
+```
+
+En este caso, los atributos son `cliente`, `platos` y `total`, que contienen toda la información necesaria sobre un pedido.
+
+---
+
+### 6. ¿Qué es el Estado de un Objeto? Ejemplo con Mesa
+
+El estado de un objeto es la condición actual de ese objeto, determinada por el valor de sus atributos en un momento dado.
+
+Ejemplo con la clase `Mesa`:
+
+```python
+mesa1 = Mesa(1)
+mesa1.estado  # libre
+mesa1.ocupar()
+mesa1.estado  # ocupada
+```
+
+El estado de la mesa cambia a través de los métodos del objeto, lo que impacta directamente en el sistema de gestión (por ejemplo, una mesa ocupada no puede reservarse nuevamente).
+
+---
+
+### 7. Diferencia entre Atributo y Estado (Mesa)
+
+* Atributo: Es una característica definida en la clase, como `numero` o `estado`.
+* Estado: Es el valor actual de esos atributos.
+
+Ejemplo:
+
+```python
+mesa = Mesa(1)
+# Atributos: numero = 1, estado = 'libre'
+# Estado actual: la mesa está libre
+```
+
+Cuando el atributo `estado` cambia a “ocupada”, el estado del objeto también cambia.
+
+---
+
+### 8. ¿Qué son los Métodos? Ejemplo con realizar\_reserva()
+
+Los métodos son funciones definidas dentro de una clase que permiten realizar acciones con los objetos creados.
+
+Ejemplo de método:
+
+```python
+class Reserva:
+    def realizar_reserva(self):
+        if self.mesa.estado == "libre":
+            self.mesa.ocupar()
+```
+
+Este método modifica el estado de la mesa asociada a una reserva, y representa una acción clave del sistema.
+
+---
+
+### 9. ¿Qué es el Comportamiento de un Objeto? Ejemplo con Pedido
+
+El comportamiento es el conjunto de acciones que puede realizar un objeto, y está determinado por sus métodos.
+
+Ejemplo con la clase `Pedido`:
+
+```python
+pedido1 = Pedido("Ana", ["Sushi", "Tacos"])
+pedido1.marcar_entregado()
+```
+
+El comportamiento en este caso es la transición del pedido desde el estado “pendiente” al estado “entregado”.
+
+---
+
+### 10. Diferencia entre Método y Comportamiento
+
+* Método: Es la función que define una acción específica en una clase.
+* Comportamiento: Es el efecto que esa acción tiene sobre el estado del objeto.
+
+Ejemplo:
+Método: `marcar_entregado()`
+Comportamiento: El estado del pedido cambia a “entregado”.
+
+---
+
+### 11. Principios de la Orientación a Objetos: Abstracción y Encapsulamiento
+
+**Abstracción**
+La abstracción consiste en ocultar los detalles internos de implementación y mostrar solo la funcionalidad esencial del objeto. Esto permite trabajar con un modelo más simple del sistema.
+
+Ejemplo: El cliente no necesita saber cómo se calcula el total del pedido, solo necesita ver el resultado final.
+
+**Encapsulamiento**
+El encapsulamiento es el principio que restringe el acceso directo a ciertos componentes de un objeto. Esto protege los datos y garantiza que solo se modifiquen mediante métodos controlados.
+
+Ejemplo:
+
+```python
+class Inventario:
+    def __init__(self):
+        self.__ingredientes = {}
+
+    def agregar(self, nombre, cantidad):
+        self.__ingredientes[nombre] = cantidad
+```
+
+Aquí, `__ingredientes` es un atributo privado y solo puede modificarse a través del método `agregar`.
+
+---
+
+¿Quieres que prepare este texto en PDF con portada y formato profesional?
