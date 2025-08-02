@@ -1,7 +1,7 @@
 from tamagochi.tamagochi import Tamagochi
 from persona.persona import Persona
 
-mi_tamagochi = Tamagochi("Pixelín", "verde")
+mi_tamagochi = Tamagochi("Gozarutchi", "verde")
 yo = Persona("Daniel", "Arrieta", mi_tamagochi)
 
 yo.darle_comida()
